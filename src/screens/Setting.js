@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Layout, Text } from '@ui-kitten/components';
+
 
 function Setting() {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Setting</Text>
-        </View>
+        <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text category='h1'>Setting</Text>
+        </Layout>
     );
 }
 
