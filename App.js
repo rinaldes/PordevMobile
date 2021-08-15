@@ -6,10 +6,7 @@ import { ApplicationProvider } from '@ui-kitten/components';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Home from './src/screens/Home';
-import Category from './src/screens/Category';
-import Setting from './src/screens/Setting';
-import Bookmark from './src/screens/Bookmark';
+import { Home, Category, Setting, Bookmark } from './src/screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +48,7 @@ const App = () => (
         tabBarInactiveTintColor: 'gray',
       })}>
 
-      <Tab.Screen name="Home" component={Home} options={{ tabBarBadge: 3, title: "Article" }} />
+      <Tab.Screen name="Home" component={Home} options={{ title: "Article" }} />
       <Tab.Screen name="Category" component={Category} />
       <Tab.Screen name="Bookmark" component={Bookmark} />
       <Tab.Screen name="Setting" component={Setting} />
