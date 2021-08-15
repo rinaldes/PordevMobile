@@ -1,12 +1,12 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
-import { Card, Text } from '@ui-kitten/components';
+import { Card, Text, Button } from '@ui-kitten/components';
 import { WebView } from 'react-native-webview';
 import moment from 'moment';
 import 'moment/locale/id';
 
-const ArticleCard = ({ info = "", status = "basic" }) => (
-    <Card style={styles.card}>
+const ArticleCard = ({ info = "", status = "basic", navigation }) => (
+    <Card style={styles.card} onPress={() => navigation.navigate('ArticleDetail')}>
         <Image
             style={styles.cover}
             source={{
@@ -21,6 +21,7 @@ const ArticleCard = ({ info = "", status = "basic" }) => (
             originWhitelist={['*']}
             source={{ html: "<meta name='viewport' content='width=device-width, initial-scale=1'>" + info.item.excerpt.rendered }}
         />
+
     </Card>
 );
 

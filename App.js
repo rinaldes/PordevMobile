@@ -5,8 +5,12 @@ import { ApplicationProvider } from '@ui-kitten/components';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Home, Category, Setting, Bookmark } from './src/screens';
+
+import { Category, Setting, Bookmark } from './src/screens';
+import ArticleDetail from './src/screens/Home/ArticleDetail';
+import ArticleList from './src/screens/Home/ArticleList';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +18,7 @@ const App = () => (
   <NavigationContainer>
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        headerShown: false,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -48,7 +53,7 @@ const App = () => (
         tabBarInactiveTintColor: 'gray',
       })}>
 
-      <Tab.Screen name="Home" component={Home} options={{ title: "Article" }} />
+      <Tab.Screen name="Home" component={HomeStackScreen} options={{ title: "Article" }} />
       <Tab.Screen name="Category" component={Category} />
       <Tab.Screen name="Bookmark" component={Bookmark} />
       <Tab.Screen name="Setting" component={Setting} />
@@ -56,6 +61,17 @@ const App = () => (
     </Tab.Navigator>
   </NavigationContainer>
 );
+
+const HomeStack = createNativeStackNavigator();
+
+function HomeStackScreen({ navigation }) {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="ArticleList" component={ArticleList} options={{ title: "Article" }} navigation={navigation} />
+      <HomeStack.Screen name="ArticleDetail" component={ArticleDetail} options={{ title: "huha" }} />
+    </HomeStack.Navigator>
+  );
+}
 
 export default () => (
   <ApplicationProvider {...eva} theme={eva.light}>

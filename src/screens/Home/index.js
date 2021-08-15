@@ -1,11 +1,16 @@
 import React from 'react';
-import { Layout } from '@ui-kitten/components';
-import { Article } from '../../components'
+import ArticleList from './ArticleList';
+import ArticleDetail from './ArticleDetail';
 
-const Home = () => (
-    <Layout style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
-        <Article />
-    </Layout>
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const HomeStack = createNativeStackNavigator();
+
+const Home = ({ navigation }) => (
+    <HomeStack.Navigator>
+        <HomeStack.Screen name="ArticleList" component={ArticleList} options={{ title: "Article" }} navigation={navigation} />
+        <HomeStack.Screen name="ArticleDetails" component={ArticleDetail} options={{ title: " " }} />
+    </HomeStack.Navigator>
 )
 
 export default Home;
