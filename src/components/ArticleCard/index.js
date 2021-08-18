@@ -31,7 +31,6 @@ const ArticleCard = ({ info = "", status = "basic", navigation }) => (
                         height: auto !important;
                     }
                     `}
-      onSizeUpdated={size => console.log(size.height)}
       files={[{
         href: 'cssfileaddress',
         type: 'text/css',

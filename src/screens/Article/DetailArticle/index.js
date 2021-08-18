@@ -1,13 +1,13 @@
 import React from 'react';
 import { ScrollView, Dimensions } from 'react-native';
-import { Card, Text, Button } from '@ui-kitten/components';
-import { onShare } from '../../../modules'
+import { Card, Text } from '@ui-kitten/components';
 import AutoHeightWebView from 'react-native-autoheight-webview'
 import moment from 'moment';
 import 'moment/locale/id';
 
 export const DetailArticle = ({ route, navigation }) => {
   const { info } = route.params;
+
   return (
     <ScrollView>
       <Card>
@@ -28,7 +28,6 @@ export const DetailArticle = ({ route, navigation }) => {
                         height: auto !important;
                     }
                     `}
-          onSizeUpdated={size => console.log(size.height)}
           files={[{
             href: 'cssfileaddress',
             type: 'text/css',
@@ -36,15 +35,7 @@ export const DetailArticle = ({ route, navigation }) => {
           }]}
           source={{ html: "<meta name='viewport' content='width=device-width, initial-scale=1'>" + info.item.content.rendered }}
           viewportContent={'width=device-width, user-scalable=no'}
-
         />
-      </Card>
-      <Card>
-        <Button onPress={() =>
-          onShare(info.item.title.rendered, info.item.link)
-        }>
-          Bagikan Artikel Ini
-        </Button>
       </Card>
     </ScrollView>
   )

@@ -1,8 +1,8 @@
 import React from 'react';
-import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components';
+import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Article, Category, Bookmark, Setting } from './screens';
-
+import { ArticleIcon, BookmarkIcon, CategoryIcon, SettingIcon } from './icons'
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export const HomeScreen = () => (
@@ -23,20 +23,4 @@ const BottomTabBar = ({ navigation, state }) => (
     <BottomNavigationTab title='Bookmark' icon={BookmarkIcon} />
     <BottomNavigationTab title='Setting' icon={SettingIcon} />
   </BottomNavigation>
-);
-
-const ArticleIcon = (props) => (
-  <Icon {...props} name='file-text-outline' />
-);
-
-const CategoryIcon = (props) => (
-  <Icon {...props} name='list-outline' />
-);
-
-const BookmarkIcon = (props) => (
-  <Icon {...props} name='bookmark-outline' />
-);
-
-const SettingIcon = (props) => (
-  <Icon {...props} name='settings-outline' />
 );
