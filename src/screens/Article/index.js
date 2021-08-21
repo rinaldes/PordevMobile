@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ListArticle } from './ListArticle';
 import { DetailArticle } from './DetailArticle';
 import { Button, ButtonGroup } from '@ui-kitten/components';
@@ -22,14 +22,10 @@ const Article = ({ navigation }) => {
     }
   }, [bookmarked]);
 
-  const checkBookmark = (status) => {
-    setBookmarked(status)
-  }
-
   return (
     <Navigator>
       <Screen name="ListArticle" component={ListArticle} options={{ title: "Article" }} navigation={navigation} />
-      <Screen name="Post" checkBookmark={checkBookmark} component={DetailArticle}
+      <Screen name="Post" component={DetailArticle}
         options={({ route }) => ({
           title: route.params.info.item.title.rendered,
           headerRight: () => (

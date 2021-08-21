@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const onBookmark = (type, idPost) => {
-
+  console.log(idPost);
   if (type) {
     removeBookMark(idPost)
   } else {
@@ -10,6 +10,7 @@ const onBookmark = (type, idPost) => {
 };
 
 const removeBookMark = async (postId) => {
+  console.log(postId);
   try {
     const bookmark = await AsyncStorage.getItem('bookmark').then(
       token => {
@@ -25,29 +26,14 @@ const removeBookMark = async (postId) => {
 };
 
 const saveBookMark = async (postId) => {
+  console.log(postId);
   try {
-    let bookmark = JSON.parse(await AsyncStorage.getItem('bookmark'));
+    let bookmark = (await AsyncStorage.getItem('bookmark') == null ? [] : JSON.parse(await AsyncStorage.getItem('bookmark')));
+    console.log(bookmark);
     bookmark.push(postId);
     const jsonValue = JSON.stringify(bookmark)
     await AsyncStorage.setItem('bookmark', jsonValue)
     console.log(await AsyncStorage.getItem('bookmark'))
-  } catch (e) {
-    console.log(e)
-  }
-};
-
-export const alreadyBookmark = async (postId) => {
-  try {
-    const bookmarks = await AsyncStorage.getItem('bookmark').then(
-      token => {
-        const res = JSON.parse(token);
-        return res.filter(e => e === postId);
-      }
-    )
-    if (JSON.parse(bookmarks).length === 0)
-      return false;
-    else
-      return true;
   } catch (e) {
     console.log(e)
   }

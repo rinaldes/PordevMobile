@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, Dimensions } from 'react-native';
 import { Card, Text } from '@ui-kitten/components';
 import AutoHeightWebView from 'react-native-autoheight-webview'
