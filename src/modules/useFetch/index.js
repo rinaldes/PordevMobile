@@ -66,5 +66,23 @@ export const useFetchBookmark = (url) => {
   return [data, fetchMore];
 }
 
+export const useFetchCat = (url) => {
+  const [data, setData] = useState([]);
+
+  const getItems = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    await axios.get(`https://www.portaldekave.com/wp-json/wp/v2/categories`)
+      .then(resp => {
+        setData([...resp.data])
+      });
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  return [data];
+}
 
 export default useFetch;

@@ -24,7 +24,7 @@ const Bookmark = ({ navigation }) => {
 
   return (
     <Navigator>
-      <Screen name="ListArticle" component={ListArticle} options={{ title: "Saved" }} navigation={navigation} />
+      <Screen name="ListArticleSaved" component={ListArticle} options={{ title: "Saved" }} navigation={navigation} />
       <Screen name="Post" component={DetailArticle}
         options={({ route }) => ({
           title: route.params.info.item.title.rendered,
