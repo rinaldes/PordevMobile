@@ -5,8 +5,9 @@ import { useFetch } from '../../../modules';
 import { Layout, List } from '@ui-kitten/components';
 import { ArticleCard } from '../../../components';
 
-export const ListArticle = ({ navigation }) => {
-  const [posts, addMore] = useFetch("https://www.portaldekave.com/wp-json/wp/v2/posts?_embed");
+export const ListArticle = ({ navigation, route }) => {
+  const { cat_id } = route.params;
+  const [posts, addMore] = useFetch("https://www.portaldekave.com/wp-json/wp/v2/posts?_embed&categories=" + cat_id);
 
   const renderItem = (info) => (
     <ArticleCard status="basic" info={info} navigation={navigation} />

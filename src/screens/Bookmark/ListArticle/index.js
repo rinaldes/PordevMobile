@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { useFetch } from '../../../modules';
 
 import { Layout, List } from '@ui-kitten/components';
 import { ArticleCard } from '../../../components';
+import { useFetchBookmark } from '../../../modules/useFetch';
 
 export const ListArticle = ({ navigation }) => {
-  const [posts, addMore] = useFetch("https://www.portaldekave.com/wp-json/wp/v2/posts?_embed");
+  const [posts, addMore] = useFetchBookmark("https://www.portaldekave.com/wp-json/wp/v2/posts?_embed");
+
+  useEffect(() => {
+    addMore();
+  });
 
   const renderItem = (info) => (
     <ArticleCard status="basic" info={info} navigation={navigation} />
