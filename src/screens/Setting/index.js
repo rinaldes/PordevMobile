@@ -1,10 +1,23 @@
 import React from 'react';
-import { Layout, Text } from '@ui-kitten/components';
 
-const Setting = () => (
-  <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text category='h1'>Setting</Text>
-  </Layout>
-);
+import { createStackNavigator } from '@react-navigation/stack';
+import ListSetting from './listSetting';
+import Contact from './contact';
 
-export default Setting;
+const { Navigator, Screen } = createStackNavigator();
+
+const Setting = ({ navigation }) => {
+
+  return (
+    <Navigator>
+      <Screen name="ListSetting" component={ListSetting} options={{ title: "Categories" }} navigation={navigation} />
+      <Screen name="ContactMe" component={Contact}
+        options={({ route }) => ({
+          title: "Contact Us"
+        })} navigation={navigation}
+      />
+    </Navigator>
+  )
+}
+
+export default Setting
