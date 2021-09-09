@@ -1,6 +1,7 @@
 import React from 'react';
 import { IndexPath, Menu, MenuItem, Toggle } from '@ui-kitten/components';
 import { DarkIcon, PhoneIcon } from '../../icons';
+import { sentData } from '../../modules';
 
 const ListSetting = ({ navigation }) => {
   const [selectedIndex, setSelectedIndex] = React.useState(new IndexPath(0));
@@ -14,7 +15,7 @@ const ListSetting = ({ navigation }) => {
         </Toggle>
       } />
       <MenuItem title='Contact Us' accessoryLeft={PhoneIcon}
-        onPress={() => navigation.navigate('ContactMe')}
+        onPress={() => sentData()}
       />
     </Menu>
   )
