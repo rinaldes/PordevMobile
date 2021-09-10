@@ -24,3 +24,11 @@ export const SettingIcon = (props) => (
 export const ShareIcon = (props) => (
   <Icon {...props} name='share-outline' />
 );
+
+export const DarkIcon = (props) => (
+  <Icon {...props} name='moon-outline' />
+);
+
+export const PhoneIcon = (props) => (
+  <Icon {...props} name='phone-call-outline' />
+);

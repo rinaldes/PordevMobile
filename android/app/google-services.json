@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "348604845456",
+    "firebase_url": "https://kumpulandg.firebaseio.com",
+    "project_id": "kumpulandg",
+    "storage_bucket": "kumpulandg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348604845456:android:1636ddb5de6d9ab71ef715",
+        "android_client_info": {
+          "package_name": "com.portaldekave.pordevapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348604845456-5in0b2c15ov86blpfjg47gs7vk1pecoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMiEo4wgFzkGpLCRdTwoQ9ga73xwdhFTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348604845456-5in0b2c15ov86blpfjg47gs7vk1pecoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

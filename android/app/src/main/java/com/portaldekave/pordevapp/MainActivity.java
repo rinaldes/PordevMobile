@@ -1,4 +1,4 @@
-package com.pordevapp;
+package com.portaldekave.pordevapp;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
